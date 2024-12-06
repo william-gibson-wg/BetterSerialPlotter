@@ -70,7 +70,8 @@ void Plot::make_plot(float time, int plot_num){
             // go through each of the variables for the plot
             for (auto it = y_axis.begin(); it != y_axis.end(); it++){
                 // make sure the variable has data first
-                if(!get_data(it->first)->get().Data.empty()){
+                auto data = get_data(it->first);
+                if(data != std::nullopt && !data->get().Data.empty()){
 
                     auto x_vals = get_data(it->first)->get().get_x();
                     auto y_vals = get_data(it->first)->get().get_y();
