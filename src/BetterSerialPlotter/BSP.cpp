@@ -104,7 +104,7 @@ void BSP::append_all_data(std::vector<float> curr_data){
 
     auto old_size = mutexed_all_data.size();
     if (old_size != curr_data.size()){
-        if(curr_data.size() == 4)
+        if(curr_data.size() == 3)
         {
         if (old_size < curr_data.size()){
             for (int i = old_size; i < curr_data.size(); i++){
@@ -127,7 +127,7 @@ void BSP::append_all_data(std::vector<float> curr_data){
     float curr_time = static_cast<float>(program_clock.get_elapsed_time().as_seconds());
     
 //    for (auto i = 0; i < curr_data.size() && i < mutexed_all_data.size(); i++){
-    if(curr_data.size() == 4)
+    if(curr_data.size() == 3)
         {
     for (auto i = 0; i < curr_data.size(); i++){
         mutexed_all_data[i].AddPoint(curr_time, curr_data[i]);
